@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+ 
+mkdir -p thor
+mkdir -p thor/defesa_cibernetica
+mkdir -p thor/defesa_cibernetica/{hacker_mindset,linux,redes}
+ 
+echo "anotações" > thor/defesa_cibernetica/hacker_mindset/notas.txt
+echo "anotacoes 2" > renata/defesa_cibernetica/linux/notas.txt
+echo "anotacoes 3" > renata/defesa_cibernetica/redes/notas.txt
