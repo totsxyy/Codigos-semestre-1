@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Função para extrair URLs do site
+extract_urls() {
+    local url="$1"
+    curl -s "$url" | grep -oP 'href="\K[^"]+' | while read -r link; do
+        echo "$link"
+    done
+}
+
+# Função para extrair formulários e inputs de texto
+extract_forms_and_inputs() {
+    local url="$1"
+    curl -s "$url" | grep -oP '<form.*?</form>' | while read -r form; do
+        echo "Formulário encontrado:"
+        echo "$form" | grep -oP 'name="\K[^"]+' | while read -r input; do
+            echo "  - Input: $input"
+        done
+    done
+}
+
+# Exemplo de uso
+extract_urls "https://www.example.com"
+extract_forms_and_inputs "https://www.example.com"
